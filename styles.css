@@ -460,7 +460,8 @@ section { padding-block: 104px; position: relative; }
 /* The mess: one slow marquee of scattered files */
 .marquee {
   overflow: hidden;
-  margin: 44px 0 56px;
+  margin: 36px 0 48px;
+  padding-block: 10px;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
