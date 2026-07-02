@@ -127,13 +127,68 @@
   }
 
   /* Cursor spotlight on cards: updates CSS vars only, no layout work */
-  if (window.matchMedia("(hover: hover)").matches) {
+  const canHover = window.matchMedia("(hover: hover)").matches;
+  if (canHover) {
     document.querySelectorAll(".spot").forEach((el) => {
       el.addEventListener("pointermove", (e) => {
         const r = el.getBoundingClientRect();
         el.style.setProperty("--mx", `${e.clientX - r.left}px`);
         el.style.setProperty("--my", `${e.clientY - r.top}px`);
       });
+    });
+  }
+
+  /* Magnetic CTAs: the button leans a few px toward the cursor */
+  if (canHover && !reduceMotion) {
+    document.querySelectorAll(".magnetic").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+        const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        el.style.setProperty("--tx", `${(dx * 5).toFixed(1)}px`);
+        el.style.setProperty("--ty", `${(dy * 4).toFixed(1)}px`);
+      });
+      el.addEventListener("pointerleave", () => {
+        el.style.setProperty("--tx", "0px");
+        el.style.setProperty("--ty", "0px");
+      });
+    });
+  }
+
+  /* Hero window: subtle 3D tilt following the cursor */
+  const heroStage = document.querySelector(".hero-stage");
+  if (heroStage && canHover && !reduceMotion) {
+    const win = heroStage.querySelector(".window");
+    heroStage.addEventListener("pointermove", (e) => {
+      const r = heroStage.getBoundingClientRect();
+      const dx = (e.clientX - r.left) / r.width - 0.5;
+      const dy = (e.clientY - r.top) / r.height - 0.5;
+      win.style.setProperty("--ry", `${(dx * 3).toFixed(2)}deg`);
+      win.style.setProperty("--rx", `${(-dy * 2.4).toFixed(2)}deg`);
+    });
+    heroStage.addEventListener("pointerleave", () => {
+      win.style.setProperty("--rx", "0deg");
+      win.style.setProperty("--ry", "0deg");
+    });
+  }
+
+  /* Scrollspy: highlight the nav link for the section on screen */
+  if ("IntersectionObserver" in window) {
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((a) =>
+            a.classList.toggle("is-active", a.getAttribute("href") === `#${entry.target.id}`)
+          );
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px" }
+    );
+    navLinks.forEach((a) => {
+      const target = document.querySelector(a.getAttribute("href"));
+      if (target) spy.observe(target);
     });
   }
 
@@ -155,18 +210,127 @@
     });
   });
 
-  /* Context-pack format tabs: swap the brief filename in the tree */
-  const brief = document.querySelector(".tree-brief");
+  /* How it works: click to switch, auto-advance while on screen */
+  const howGrid = document.querySelector(".how-grid");
+  if (howGrid) {
+    const steps = [...howGrid.querySelectorAll(".how-step")];
+    const panes = [...howGrid.querySelectorAll(".how-pane")];
+    const INTERVAL = 6000;
+    howGrid.style.setProperty("--how-interval", `${INTERVAL}ms`);
+    let timer = null;
+    let idx = 0;
+    const activate = (i) => {
+      idx = i;
+      steps.forEach((s, n) => {
+        s.classList.toggle("is-active", n === i);
+        s.setAttribute("aria-selected", n === i ? "true" : "false");
+        if (n === i) {
+          const bar = s.querySelector(".how-progress i");
+          bar.style.animation = "none";
+          void bar.offsetWidth;
+          bar.style.animation = "";
+        }
+      });
+      panes.forEach((p) => p.classList.toggle("is-active", p.dataset.pane === steps[i].dataset.step));
+    };
+    const startAuto = () => {
+      if (reduceMotion || timer) return;
+      howGrid.classList.add("how-auto");
+      timer = setInterval(() => activate((idx + 1) % steps.length), INTERVAL);
+    };
+    const stopAuto = () => {
+      howGrid.classList.remove("how-auto");
+      clearInterval(timer);
+      timer = null;
+    };
+    steps.forEach((s, i) =>
+      s.addEventListener("click", () => {
+        stopAuto();
+        activate(i);
+      })
+    );
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => (e.isIntersecting ? startAuto() : stopAuto()), {
+        threshold: 0.35,
+      }).observe(howGrid);
+    }
+  }
+
+  /* MCP terminal: type the command once when it scrolls into view */
+  const term = document.getElementById("mcp-term");
+  if (term && !reduceMotion && "IntersectionObserver" in window) {
+    const finalHTML = term.innerHTML;
+    const commandText = 'claude mcp add --transport http manather \\\n    http://127.0.0.1:4319/mcp \\\n    --header "Authorization: Bearer <your-token>"';
+    const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    term.innerHTML = '<span class="term-prompt">$</span> <span class="term-cursor" aria-hidden="true"></span>';
+    let started = false;
+    new IntersectionObserver(([e], io) => {
+      if (!e.isIntersecting || started) return;
+      started = true;
+      io.disconnect();
+      let n = 0;
+      const tick = () => {
+        n += 2 + Math.floor(Math.random() * 3);
+        if (n < commandText.length) {
+          term.innerHTML =
+            '<span class="term-prompt">$</span> ' +
+            esc(commandText.slice(0, n)) +
+            '<span class="term-cursor" aria-hidden="true"></span>';
+          setTimeout(tick, 24 + Math.random() * 40);
+        } else {
+          setTimeout(() => {
+            term.innerHTML = finalHTML;
+          }, 350);
+        }
+      };
+      setTimeout(tick, 300);
+    }, { threshold: 0.5 }).observe(term);
+  }
+
+  /* Context pack: format tabs swap the brief filename; files open previews */
+  const PACK_FILES = {
+    brief: (fmt) =>
+      `<span class="dim"># ${fmt === "CONTEXT.md" ? "CONTEXT" : fmt.replace(".md", "")}.md (sample)</span>\n\n# Project context\n\nDark, native-feeling macOS app landing.\nStart from the references below.\n\n<span class="hl">## Skills</span>\n- skills/swift-macos.md\n\n<span class="hl">## MCP servers</span>\n- manather · http://127.0.0.1:4319/mcp\n\n<span class="hl">## Snippets</span>\n- snippets/MasonryLayout.swift`,
+    manifest: () =>
+      `<span class="dim">// manifest.json (sample)</span>\n{\n  "name": "my-project",\n  "format": "claude-code",\n  "assets": [\n    { "type": "image",\n      "file": "assets/moodboard-042.png",\n      "tags": ["dark", "grid"] },\n    { "type": "skill",\n      "file": "skills/swift-macos.md" }\n  ]\n}`,
+    assets: () =>
+      `<span class="dim"># assets/ (sample)</span>\n\nmoodboard-042.png      <span class="dim">1.2 MB</span>\nref-hero-dark.png      <span class="dim">840 KB</span>\npalette-teal.png       <span class="dim">96 KB</span>\ndemo-clip.mp4          <span class="dim">3.1 MB</span>\n\n<span class="dim">Copied as-is. Originals never move.</span>`,
+    skills: () =>
+      `<span class="dim"># skills/swift-macos.md (sample)</span>\n\n---\nname: swift-macos\ndescription: SwiftUI patterns for macOS\n---\n\nUse NavigationSplitView for sidebars.\nPrefer .ultraThinMaterial for panels.`,
+    snippets: () =>
+      `<span class="dim"># snippets/ (sample)</span>\n\nMasonryLayout.swift    <span class="dim">Swift</span>\nSpringMotion.swift     <span class="dim">Swift</span>\nhue-filter.ts          <span class="dim">TypeScript</span>\n\n<span class="dim">Each snippet keeps its native extension.</span>`,
+  };
+  const packPreview = document.getElementById("pack-preview");
   const packTabs = document.querySelectorAll(".tab[data-format]");
+  const treeItems = document.querySelectorAll(".tree-item");
+  const brief = document.querySelector(".tree-brief");
+  let currentFormat = "CLAUDE.md";
+  let currentFile = "brief";
+  const renderPack = () => {
+    if (packPreview) packPreview.innerHTML = PACK_FILES[currentFile](currentFormat);
+  };
   packTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       packTabs.forEach((t) => {
         t.classList.toggle("is-active", t === tab);
         t.setAttribute("aria-selected", t === tab ? "true" : "false");
       });
-      if (brief) brief.textContent = tab.dataset.format;
+      currentFormat = tab.dataset.format;
+      if (brief) brief.textContent = currentFormat;
+      renderPack();
     });
   });
+  treeItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      treeItems.forEach((t) => {
+        t.classList.toggle("is-active", t === item);
+        t.setAttribute("aria-selected", t === item ? "true" : "false");
+      });
+      currentFile = item.dataset.file;
+      renderPack();
+    });
+  });
+  renderPack();
 
   /* Gallery tabs */
   const shots = {
@@ -213,9 +377,28 @@
   const compact = (n) =>
     n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, "")}k` : `${n}`;
 
+  const countUp = (el, target) => {
+    if (reduceMotion || target < 10) {
+      el.textContent = compact(target);
+      return;
+    }
+    const t0 = performance.now();
+    const DUR = 900;
+    const frame = (now) => {
+      const p = Math.min((now - t0) / DUR, 1);
+      el.textContent = compact(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  };
+
   const setStat = (name, value, label) => {
     document.querySelectorAll(`[data-stat="${name}"]`).forEach((el) => {
-      el.textContent = value;
+      if (typeof value === "number") {
+        countUp(el, value);
+      } else {
+        el.textContent = value;
+      }
       el.hidden = false;
     });
     document.querySelectorAll(`[data-stat-label="${name}"]`).forEach((el) => {
@@ -227,7 +410,7 @@
     .then((r) => (r.ok ? r.json() : Promise.reject()))
     .then((repo) => {
       if (Number.isFinite(repo.stargazers_count)) {
-        setStat("stars", compact(repo.stargazers_count), "stars on GitHub");
+        setStat("stars", repo.stargazers_count, "stars on GitHub");
       }
     })
     .catch(() => {});
@@ -239,7 +422,7 @@
         (sum, rel) => sum + rel.assets.reduce((s, a) => s + a.download_count, 0),
         0
       );
-      if (total > 0) setStat("downloads", compact(total), "downloads");
+      if (total > 0) setStat("downloads", total, "downloads");
     })
     .catch(() => {});
 })();

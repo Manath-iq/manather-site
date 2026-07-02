@@ -66,7 +66,7 @@
         <h1 class="hero-title reveal">The native macOS home for everything you feed <span class="accent">your AI.</span></h1>
         <p class="hero-sub reveal">Collect references, skills, MCP servers, snippets, and prompts. Export any project as a context pack your agent can read.</p>
         <div class="hero-ctas reveal">
-          <a class="btn btn-primary" href="https://github.com/Manath-iq/Manather/releases/latest">
+          <a class="btn btn-primary magnetic" href="https://github.com/Manath-iq/Manather/releases/latest">
             <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#apple-logo"/></svg>
             Download for macOS
           </a>
@@ -181,22 +181,46 @@
 
     <!-- How it works -->
     <section class="how" id="how">
-      <div class="container">
+      <div class="container container-wide">
         <h2 class="reveal">How it works</h2>
-        <ol class="steps">
-          <li class="reveal">
-            <h3>Collect</h3>
-            <p>Drag in images, links, snippets, skills, and MCP configs. Each asset carries its own prompt, notes, and tags. Links get an automatic page screenshot.</p>
-          </li>
-          <li class="reveal">
-            <h3>Organize</h3>
-            <p>Group assets into collections, and let one asset live in several at once. Find anything again with color filters, search, and a masonry grid.</p>
-          </li>
-          <li class="reveal">
-            <h3>Export</h3>
-            <p>Right-click a collection and export a context pack. Drop the folder in a repo and point Claude Code or any agent at it, git init included.</p>
-          </li>
-        </ol>
+        <div class="how-grid reveal">
+          <div class="how-steps" role="tablist" aria-label="How it works">
+            <button class="how-step is-active" role="tab" aria-selected="true" data-step="collect" type="button">
+              <span class="how-progress" aria-hidden="true"><i></i></span>
+              <h3>Collect</h3>
+              <p>Drag in images, links, snippets, skills, and MCP configs. Each asset carries its own prompt, notes, and tags.</p>
+            </button>
+            <button class="how-step" role="tab" aria-selected="false" data-step="organize" type="button">
+              <span class="how-progress" aria-hidden="true"><i></i></span>
+              <h3>Organize</h3>
+              <p>Group assets into collections, one asset can live in several at once. Color filters and search find anything again.</p>
+            </button>
+            <button class="how-step" role="tab" aria-selected="false" data-step="export" type="button">
+              <span class="how-progress" aria-hidden="true"><i></i></span>
+              <h3>Export</h3>
+              <p>Right-click a collection and export a context pack. Point Claude Code or any agent at the folder, git init included.</p>
+            </button>
+          </div>
+          <div class="how-visual">
+            <figure class="window how-pane is-active" data-pane="collect">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+              <img src="assets/library.webp" alt="Dragging assets into the Manather masonry grid" loading="lazy" width="1600" height="1000">
+            </figure>
+            <figure class="window how-pane" data-pane="organize">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+              <img src="assets/collections.webp" alt="Grouping assets into Manather collections" loading="lazy" width="1600" height="1000">
+            </figure>
+            <div class="window how-pane how-pane-code" data-pane="export">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+<pre><code>$ ls my-project-context-pack/
+
+<span class="tree-brief">CLAUDE.md</span>   manifest.json
+assets/     skills/     snippets/
+
+<span class="term-ok">✓</span> ready for your agent</code></pre>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -215,13 +239,13 @@
             </div>
           </article>
           <article class="cell spot reveal">
-            <div class="cell-icons" aria-hidden="true">
-              <svg class="icon"><use href="assets/icons.svg#images"/></svg>
-              <svg class="icon"><use href="assets/icons.svg#link"/></svg>
-              <svg class="icon"><use href="assets/icons.svg#code"/></svg>
-              <svg class="icon"><use href="assets/icons.svg#plug"/></svg>
-              <svg class="icon"><use href="assets/icons.svg#book-open-text"/></svg>
-              <svg class="icon"><use href="assets/icons.svg#note"/></svg>
+            <div class="type-chips" aria-hidden="true">
+              <span><svg class="icon"><use href="assets/icons.svg#images"/></svg>Images</span>
+              <span><svg class="icon"><use href="assets/icons.svg#link"/></svg>Links</span>
+              <span><svg class="icon"><use href="assets/icons.svg#code"/></svg>Snippets</span>
+              <span><svg class="icon"><use href="assets/icons.svg#plug"/></svg>MCP</span>
+              <span><svg class="icon"><use href="assets/icons.svg#book-open-text"/></svg>Skills</span>
+              <span><svg class="icon"><use href="assets/icons.svg#note"/></svg>Prompts</span>
             </div>
             <div class="cell-body">
               <h3>Six asset types</h3>
@@ -238,7 +262,13 @@
             </div>
           </article>
           <article class="cell spot reveal">
-            <svg class="icon cell-glyph" aria-hidden="true"><use href="assets/icons.svg#sparkle"/></svg>
+            <div class="provider-row" aria-hidden="true">
+              <svg class="icon"><use href="assets/icons.svg#brand-anthropic"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#brand-googlegemini"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#brand-ollama"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#brand-mistral"/></svg>
+              <span class="provider-more">+4</span>
+            </div>
             <div class="cell-body">
               <h3>Bring your own AI</h3>
               <p>Generate image variations and auto-tag with vision. Bring any provider: OpenAI, Anthropic, Gemini, Ollama, and more. Keys stay in the Keychain.</p>
@@ -279,9 +309,12 @@
                 Copy
               </button>
             </div>
-<pre><code>claude mcp add --transport http manather \
-  http://127.0.0.1:4319/mcp \
-  --header "Authorization: Bearer &lt;your-token&gt;"</code></pre>
+<pre><code id="mcp-term"><span class="term-prompt">$</span> claude mcp add --transport http manather \
+    http://127.0.0.1:4319/mcp \
+    --header "Authorization: Bearer &lt;your-token&gt;"
+
+<span class="term-ok">✓</span> manather connected
+<span class="term-prompt">$</span> <span class="term-cursor" aria-hidden="true"></span></code></pre>
           </div>
           <ul class="mcp-points">
             <li class="reveal">
@@ -321,12 +354,32 @@
             <button class="tab" role="tab" aria-selected="false" data-format="AGENTS.md">AGENTS.md</button>
             <button class="tab" role="tab" aria-selected="false" data-format="CONTEXT.md">Generic</button>
           </div>
-<pre class="tree"><code>my-project-context-pack/
-├── <span class="tree-brief">CLAUDE.md</span>      <span class="tree-note">the brief: skills, servers, snippets, links</span>
-├── manifest.json  <span class="tree-note">machine-readable index of every asset</span>
-├── assets/        <span class="tree-note">copied image and video files</span>
-├── skills/        <span class="tree-note">each skill as a .md file</span>
-└── snippets/      <span class="tree-note">each snippet in its native extension</span></code></pre>
+          <div class="pack-body">
+            <ul class="tree-list" role="tablist" aria-label="Files in the context pack">
+              <li><button class="tree-item is-active" role="tab" aria-selected="true" data-file="brief" type="button">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#note"/></svg>
+                <span class="tree-brief">CLAUDE.md</span>
+              </button></li>
+              <li><button class="tree-item" role="tab" aria-selected="false" data-file="manifest" type="button">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#code"/></svg>
+                manifest.json
+              </button></li>
+              <li><button class="tree-item" role="tab" aria-selected="false" data-file="assets" type="button">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#images"/></svg>
+                assets/
+              </button></li>
+              <li><button class="tree-item" role="tab" aria-selected="false" data-file="skills" type="button">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#book-open-text"/></svg>
+                skills/
+              </button></li>
+              <li><button class="tree-item" role="tab" aria-selected="false" data-file="snippets" type="button">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#terminal-window"/></svg>
+                snippets/
+              </button></li>
+            </ul>
+            <pre class="tree-preview"><code id="pack-preview"></code></pre>
+          </div>
+          <p class="pack-hint">Sample contents. Click a file to peek inside.</p>
         </div>
       </div>
     </section>
@@ -352,7 +405,12 @@
     <section class="local" id="local">
       <div class="container">
         <h2 class="reveal">Your data stays on your Mac.</h2>
-        <p class="lead reveal">Files are copied into the app sandbox and never uploaded anywhere. No account, no telemetry, no cloud. AI features call only the provider you configure, with your own key, and only when you use them.</p>
+        <p class="lead reveal">Files are copied into the app sandbox and never uploaded anywhere. AI features call only the provider you configure, with your own key, and only when you use them.</p>
+        <div class="local-chips reveal">
+          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>No account</span>
+          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>No telemetry</span>
+          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>No cloud</span>
+        </div>
         <div class="build-src reveal">
           <p>Prefer to build it yourself? macOS 14 and Xcode 16 are all you need.</p>
           <div class="codeline">
@@ -369,9 +427,10 @@
     <!-- Download -->
     <section class="download" id="download">
       <div class="container">
+        <img class="download-icon reveal" src="assets/app-icon.webp" alt="" width="76" height="76">
         <h2 class="reveal">Get Manather.</h2>
         <div class="download-ctas reveal">
-          <a class="btn btn-primary btn-lg" href="https://github.com/Manath-iq/Manather/releases/latest">
+          <a class="btn btn-primary btn-lg magnetic" href="https://github.com/Manath-iq/Manather/releases/latest">
             <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#apple-logo"/></svg>
             Download for macOS
           </a>
@@ -421,6 +480,7 @@
   </main>
 
   <footer class="footer">
+    <div class="footer-wordmark" aria-hidden="true">MANATHER</div>
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="assets/app-icon.webp" alt="" width="22" height="22">
