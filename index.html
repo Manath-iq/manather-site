@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manather: the native macOS home for everything you feed your AI</title>
+  <meta name="description" content="Collect references, skills, MCP servers, snippets, and prompts. Organize them visually and export any project as a context pack your AI agent can read. Free, open source, macOS 14+.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Manather: the native macOS home for everything you feed your AI">
+  <meta property="og:description" content="Collect references, skills, MCP servers, snippets, and prompts. Export any project as an agent-ready context pack. Free and open source.">
+  <meta property="og:url" content="https://manath-iq.github.io/manather-site/">
+  <meta property="og:image" content="https://manath-iq.github.io/manather-site/assets/cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/clash-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/cover.webp" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <img src="assets/app-icon.webp" alt="" width="28" height="28">
+        <span>Manather</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#mcp">MCP</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-github" href="https://github.com/Manath-iq/Manather" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#github-logo"/></svg>
+          <span data-stat="stars" hidden></span>
+        </a>
+        <a class="btn btn-primary btn-sm" href="#download">Download</a>
+      </div>
+    </div>
+  </header>
+  <div id="nav-sentinel" aria-hidden="true"></div>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="aurora" aria-hidden="true"></div>
+      <canvas class="aurora-canvas" aria-hidden="true"></canvas>
+      <div class="dotgrid" aria-hidden="true"></div>
+      <div class="container">
+        <a class="hero-badge liquid-glass reveal" href="#mcp">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#plugs-connected"/></svg>
+          New: built-in MCP server
+          <span class="badge-go">See how
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"/></svg>
+          </span>
+        </a>
+        <h1 class="hero-title reveal">The native macOS home for everything you feed <span class="accent">your AI.</span></h1>
+        <p class="hero-sub reveal">Collect references, skills, MCP servers, snippets, and prompts. Export any project as a context pack your agent can read.</p>
+        <div class="hero-ctas reveal">
+          <a class="btn btn-primary" href="https://github.com/Manath-iq/Manather/releases/latest">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#apple-logo"/></svg>
+            Download for macOS
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/Manath-iq/Manather" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#github-logo"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+      <div class="container container-wide">
+        <div class="hero-stage reveal">
+          <div class="float-chip chip-1" aria-hidden="true">
+            <svg class="icon"><use href="assets/icons.svg#images"/></svg>
+            moodboard-042.png
+          </div>
+          <div class="float-chip chip-2" aria-hidden="true">
+            <svg class="icon"><use href="assets/icons.svg#book-open-text"/></svg>
+            swift-macos.skill.md
+          </div>
+          <div class="float-chip chip-3" aria-hidden="true">
+            <svg class="icon"><use href="assets/icons.svg#plug"/></svg>
+            mcp-config.json
+          </div>
+          <div class="float-chip chip-4" aria-hidden="true">
+            <svg class="icon"><use href="assets/icons.svg#code"/></svg>
+            MasonryLayout.swift
+          </div>
+          <figure class="window">
+            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="assets/cover.webp" alt="The Manather library: a masonry grid of images, snippets, skills, and links" width="1600" height="1000" fetchpriority="high">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="stats">
+      <div class="container">
+        <ul class="stats-row reveal">
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#github-logo"/></svg>
+            <strong data-stat="stars">Open</strong> <span data-stat-label="stars">source on GitHub</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#download-simple"/></svg>
+            <strong data-stat="downloads">Free</strong> <span data-stat-label="downloads">to download</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#shield-check"/></svg>
+            <strong>MIT</strong> <span>licensed</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#apple-logo"/></svg>
+            <strong>macOS 14+</strong> <span>on Apple Silicon</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Problem / solution -->
+    <section class="problem">
+      <div class="container">
+        <h2 class="reveal">Your context is scattered. <span class="h2-dim">Every project pays for it.</span></h2>
+      </div>
+      <div class="marquee reveal" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#images"/></svg>IMG_2047.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#note"/></svg>prompt-final-v3.txt</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#code"/></svg>untitled-snippet.swift</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#link"/></svg>ref-do-not-lose.url</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#plug"/></svg>mcp-backup-OLD.json</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#images"/></svg>Screenshot 2026-05-11.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#book-open-text"/></svg>skill-copy-2.md</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#folders"/></svg>New Folder (7)</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#images"/></svg>IMG_2047.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#note"/></svg>prompt-final-v3.txt</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#code"/></svg>untitled-snippet.swift</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#link"/></svg>ref-do-not-lose.url</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#plug"/></svg>mcp-backup-OLD.json</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#images"/></svg>Screenshot 2026-05-11.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#book-open-text"/></svg>skill-copy-2.md</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg#folders"/></svg>New Folder (7)</span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="problem-grid">
+          <ul class="pain-list reveal">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#folders"/></svg>
+              Reference screenshots buried in Downloads and Desktop folders
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#note"/></svg>
+              Prompts that live in old chat threads and Notes
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#code"/></svg>
+              Snippets pasted between projects, never in the same place twice
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#plug"/></svg>
+              Skills and MCP configs spread across <code>~/.claude</code>
+            </li>
+          </ul>
+          <div class="problem-copy reveal">
+            <p>Every new project starts with the same archaeology: digging up references, prompts, and configs you already had somewhere.</p>
+            <p><strong>Manather is one home for all of it.</strong> Save your building blocks once, organize them visually, and hand a whole project to your agent as a single clean folder it can read.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how" id="how">
+      <div class="container">
+        <h2 class="reveal">How it works</h2>
+        <ol class="steps">
+          <li class="reveal">
+            <h3>Collect</h3>
+            <p>Drag in images, links, snippets, skills, and MCP configs. Each asset carries its own prompt, notes, and tags. Links get an automatic page screenshot.</p>
+          </li>
+          <li class="reveal">
+            <h3>Organize</h3>
+            <p>Group assets into collections, and let one asset live in several at once. Find anything again with color filters, search, and a masonry grid.</p>
+          </li>
+          <li class="reveal">
+            <h3>Export</h3>
+            <p>Right-click a collection and export a context pack. Drop the folder in a repo and point Claude Code or any agent at it, git init included.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Features bento -->
+    <section class="features" id="features">
+      <div class="container container-wide">
+        <h2 class="reveal">A library built for building blocks.</h2>
+        <div class="bento">
+          <article class="cell cell-boards spot reveal">
+            <div class="cell-media">
+              <img src="assets/board.webp" alt="A Manather board: an infinite canvas with images, notes, shapes, and arrows" loading="lazy" width="1600" height="1000">
+            </div>
+            <div class="cell-body">
+              <h3>Boards</h3>
+              <p>An infinite canvas for moodboards. Drop in library images, notes, shapes, and arrows. Move, resize, rotate, then export the board as a PNG.</p>
+            </div>
+          </article>
+          <article class="cell spot reveal">
+            <div class="cell-icons" aria-hidden="true">
+              <svg class="icon"><use href="assets/icons.svg#images"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#link"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#code"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#plug"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#book-open-text"/></svg>
+              <svg class="icon"><use href="assets/icons.svg#note"/></svg>
+            </div>
+            <div class="cell-body">
+              <h3>Six asset types</h3>
+              <p>Images and video, web links, code snippets, MCP servers, skills, and prompts, all in one grid.</p>
+            </div>
+          </article>
+          <article class="cell spot reveal">
+            <div class="hue-dots" aria-hidden="true">
+              <i style="--c:#E5484D"></i><i style="--c:#F76B15"></i><i style="--c:#FFC53D"></i><i style="--c:#46A758"></i><i style="--c:#00A2C7"></i><i style="--c:#6E56CF"></i><i style="--c:#E93D82"></i>
+            </div>
+            <div class="cell-body">
+              <h3>Find it fast</h3>
+              <p>Filter by color: seven hues, extracted automatically on import. Full-text search covers titles, notes, tags, and code.</p>
+            </div>
+          </article>
+          <article class="cell spot reveal">
+            <svg class="icon cell-glyph" aria-hidden="true"><use href="assets/icons.svg#sparkle"/></svg>
+            <div class="cell-body">
+              <h3>Bring your own AI</h3>
+              <p>Generate image variations and auto-tag with vision. Bring any provider: OpenAI, Anthropic, Gemini, Ollama, and more. Keys stay in the Keychain.</p>
+            </div>
+          </article>
+          <article class="cell spot reveal">
+            <div class="kbd-row" aria-hidden="true"><kbd>&#8984;F</kbd><kbd>&#8984;+</kbd><kbd>&#8984;0</kbd></div>
+            <div class="cell-body">
+              <h3>Feels native</h3>
+              <p>Pure Swift, no web wrapper. Light and dark themes, keyboard shortcuts, and fluid motion throughout.</p>
+            </div>
+          </article>
+          <article class="cell cell-collections spot reveal">
+            <div class="cell-body">
+              <h3>Collections</h3>
+              <p>One asset can live in many collections at once, so a color palette can sit in every project that uses it. Keep separate libraries per client and share any of them as a zip.</p>
+            </div>
+            <img src="assets/collections.webp" alt="Manather collections: groups of assets shown as stacked cards" loading="lazy" width="1600" height="1000">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MCP -->
+    <section class="mcp" id="mcp">
+      <div class="container">
+        <h2 class="reveal">Your agent can reach straight into the library.</h2>
+        <p class="lead reveal">Manather doubles as a local MCP server. Claude Code, Cursor, or anything that speaks MCP can search your library, pull assets, add new ones, and export whole collections while you work.</p>
+        <div class="mcp-grid">
+          <div class="terminal reveal">
+            <div class="terminal-bar">
+              <span class="terminal-title">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#terminal-window"/></svg>
+                zsh
+              </span>
+              <button class="copy-btn" type="button" data-copy="claude mcp add --transport http manather http://127.0.0.1:4319/mcp --header &quot;Authorization: Bearer &lt;your-token&gt;&quot;">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg>
+                Copy
+              </button>
+            </div>
+<pre><code>claude mcp add --transport http manather \
+  http://127.0.0.1:4319/mcp \
+  --header "Authorization: Bearer &lt;your-token&gt;"</code></pre>
+          </div>
+          <ul class="mcp-points">
+            <li class="reveal">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#lock-key"/></svg>
+              <div>
+                <h3>Off by default</h3>
+                <p>The server runs only while Manather is open, and only after you turn it on in Settings.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#shield-check"/></svg>
+              <div>
+                <h3>Local only</h3>
+                <p>It listens on 127.0.0.1 and requires a private token. Nothing is reachable from outside your Mac.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>
+              <div>
+                <h3>You pick the permissions</h3>
+                <p>Per-capability toggles let an agent search but not create, or read but not export. Changes apply instantly.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Context pack -->
+    <section class="pack" id="pack">
+      <div class="container">
+        <h2 class="reveal">What your agent actually gets.</h2>
+        <p class="lead reveal">A context pack is a clean folder your agent reads top to bottom. Pick the format that matches your tool.</p>
+        <div class="pack-panel reveal">
+          <div class="tabs" role="tablist" aria-label="Context pack format">
+            <button class="tab is-active" role="tab" aria-selected="true" data-format="CLAUDE.md">Claude Code</button>
+            <button class="tab" role="tab" aria-selected="false" data-format="AGENTS.md">AGENTS.md</button>
+            <button class="tab" role="tab" aria-selected="false" data-format="CONTEXT.md">Generic</button>
+          </div>
+<pre class="tree"><code>my-project-context-pack/
+├── <span class="tree-brief">CLAUDE.md</span>      <span class="tree-note">the brief: skills, servers, snippets, links</span>
+├── manifest.json  <span class="tree-note">machine-readable index of every asset</span>
+├── assets/        <span class="tree-note">copied image and video files</span>
+├── skills/        <span class="tree-note">each skill as a .md file</span>
+└── snippets/      <span class="tree-note">each snippet in its native extension</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+      <div class="container container-wide">
+        <h2 class="reveal">Inside the app.</h2>
+        <div class="tabs tabs-center reveal" role="tablist" aria-label="Screenshots">
+          <button class="tab is-active" role="tab" aria-selected="true" data-shot="library">Library</button>
+          <button class="tab" role="tab" aria-selected="false" data-shot="board">Boards</button>
+          <button class="tab" role="tab" aria-selected="false" data-shot="collections">Collections</button>
+        </div>
+        <figure class="window reveal">
+          <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img id="gallery-shot" src="assets/library.webp" alt="The Manather library: masonry grid with color filter and search" width="1600" height="1000" loading="lazy">
+        </figure>
+        <p class="gallery-caption" id="gallery-caption">The library: a masonry grid with color filter and search.</p>
+      </div>
+    </section>
+
+    <!-- Local-first -->
+    <section class="local" id="local">
+      <div class="container">
+        <h2 class="reveal">Your data stays on your Mac.</h2>
+        <p class="lead reveal">Files are copied into the app sandbox and never uploaded anywhere. No account, no telemetry, no cloud. AI features call only the provider you configure, with your own key, and only when you use them.</p>
+        <div class="build-src reveal">
+          <p>Prefer to build it yourself? macOS 14 and Xcode 16 are all you need.</p>
+          <div class="codeline">
+            <code>git clone https://github.com/Manath-iq/Manather.git &amp;&amp; open Manather/manather.xcodeproj</code>
+            <button class="copy-btn" type="button" data-copy="git clone https://github.com/Manath-iq/Manather.git && open Manather/manather.xcodeproj">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="download" id="download">
+      <div class="container">
+        <h2 class="reveal">Get Manather.</h2>
+        <div class="download-ctas reveal">
+          <a class="btn btn-primary btn-lg" href="https://github.com/Manath-iq/Manather/releases/latest">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#apple-logo"/></svg>
+            Download for macOS
+          </a>
+          <p class="download-note">Free. For Apple Silicon Macs on macOS 14 or newer.</p>
+        </div>
+        <div class="codeline reveal">
+          <code>brew install --cask manath-iq/manather/manather</code>
+          <button class="copy-btn" type="button" data-copy="brew install --cask manath-iq/manather/manather">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#copy"/></svg>
+            Copy
+          </button>
+        </div>
+        <p class="gatekeeper reveal">The .dmg is not notarized by Apple yet, so the first launch shows a Gatekeeper warning: right-click the app and choose Open. Homebrew installs skip the warning entirely.</p>
+        <div class="roadmap reveal">
+          <p><strong>Shipped:</strong> the multi-type library, Boards, collections with context-pack export, and the MCP server. <strong>Next up:</strong> project templates. Follow along in the <a href="https://github.com/Manath-iq/Manather/blob/main/CHANGELOG.md" target="_blank" rel="noopener">changelog</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container container-narrow">
+        <h2 class="reveal">Questions, answered.</h2>
+        <details class="reveal">
+          <summary>Is Manather free? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#caret-down"/></svg></summary>
+          <p>Yes. It is free, MIT-licensed open source. No account, no subscription, no paid tier.</p>
+        </details>
+        <details class="reveal">
+          <summary>Where does my data go? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#caret-down"/></svg></summary>
+          <p>Nowhere. Everything lives in the app sandbox on your Mac. AI features call the provider you configured with your own key, and only when you trigger them.</p>
+        </details>
+        <details class="reveal">
+          <summary>Does it run on Intel Macs? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#caret-down"/></svg></summary>
+          <p>The prebuilt app targets Apple Silicon on macOS 14 or newer. Intel Macs are not supported.</p>
+        </details>
+        <details class="reveal">
+          <summary>Which agents does it work with? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#caret-down"/></svg></summary>
+          <p>Claude Code out of the box, anything that speaks MCP, and any tool that reads AGENTS.md or a plain markdown context pack.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do I need an AI provider key? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#caret-down"/></svg></summary>
+          <p>No. The library, boards, collections, and export all work without one. A key only unlocks the optional AI extras: image variations, vision auto-tagging, and AI-written export briefs.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/app-icon.webp" alt="" width="22" height="22">
+        <span>Manather. The library for vibe-coders.</span>
+      </div>
+      <nav class="footer-links" aria-label="Project links">
+        <a href="https://github.com/Manath-iq/Manather" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/Manath-iq/Manather/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/Manath-iq/Manather/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
+        <a href="https://github.com/Manath-iq/Manather/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
