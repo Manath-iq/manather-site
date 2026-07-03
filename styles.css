@@ -227,7 +227,7 @@ section { padding-block: 104px; position: relative; }
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-.nav-actions { display: flex; align-items: center; gap: 14px; }
+.nav-actions { display: flex; align-items: center; gap: 14px; margin-left: auto; }
 
 .nav-github {
   display: inline-flex;
@@ -404,6 +404,7 @@ section { padding-block: 104px; position: relative; }
 .hero-stage { position: relative; margin-top: 84px; }
 
 .window {
+  position: relative;
   margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
@@ -431,6 +432,36 @@ section { padding-block: 104px; position: relative; }
 /* Screenshots that already include their own macOS chrome */
 .window-bare .window-bar { display: none; }
 
+/* Theme flip chip pinned to the hero screenshot */
+.theme-flip {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: rgba(13, 16, 19, 0.65);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), transform 0.18s var(--ease);
+}
+.theme-flip:hover { border-color: rgba(255, 255, 255, 0.3); transform: scale(1.06); }
+.theme-flip .icon { width: 19px; height: 19px; }
+.theme-flip .icon-moon { display: none; }
+.theme-flip.is-light { background: rgba(255, 255, 255, 0.75); color: #1a2023; }
+.theme-flip.is-light .icon-sun { display: none; }
+.theme-flip.is-light .icon-moon { display: block; }
+
+#hero-shot { transition: opacity 0.25s var(--ease); }
+#hero-shot.is-fading { opacity: 0.25; }
+
 /* Floating chips: things you drag into the library */
 .float-chip {
   position: absolute;
@@ -452,7 +483,7 @@ section { padding-block: 104px; position: relative; }
 }
 .float-chip .icon { color: var(--accent-bright); width: 1.15em; height: 1.15em; }
 .chip-1 { top: -26px; left: -34px; rotate: -3deg; }
-.chip-2 { top: 18%; right: -46px; rotate: 2.5deg; }
+.chip-2 { top: 27%; right: -46px; rotate: 2.5deg; }
 .chip-3 { bottom: 22%; left: -52px; rotate: 2deg; }
 .chip-4 { bottom: -20px; right: 8%; rotate: -2deg; }
 
@@ -834,7 +865,8 @@ kbd {
 .copy-btn:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.28); }
 .copy-btn.is-copied { color: var(--accent-bright); border-color: var(--accent); }
 
-.mcp-shot { margin-top: 32px; max-width: 560px; }
+.mcp-side { display: flex; flex-direction: column; gap: 32px; }
+.mcp-shot { margin: 0; }
 .mcp-shot img { width: 100%; }
 
 .mcp-points { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 28px; }

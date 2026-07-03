@@ -27,7 +27,7 @@
   <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <noscript>
     <style>
       .reveal { opacity: 1 !important; transform: none !important; }
@@ -53,13 +53,13 @@
       </nav>
       <div class="nav-actions">
         <a class="nav-github" href="https://github.com/Manath-iq/Manather" target="_blank" rel="noopener" aria-label="Manather on GitHub">
-          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#github-logo"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#github-logo"/></svg>
           <span data-stat="stars" hidden></span>
         </a>
         <a class="btn btn-primary btn-sm" href="https://github.com/Manath-iq/Manather/releases/latest">Download</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="nav-menu">
-          <svg class="icon icon-open" aria-hidden="true"><use href="assets/icons.svg?v=4#list"/></svg>
-          <svg class="icon icon-close" aria-hidden="true"><use href="assets/icons.svg?v=4#x"/></svg>
+          <svg class="icon icon-open" aria-hidden="true"><use href="assets/icons.svg?v=5#list"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="assets/icons.svg?v=5#x"/></svg>
         </button>
       </div>
     </div>
@@ -81,21 +81,21 @@
       <div class="dotgrid" aria-hidden="true"></div>
       <div class="container">
         <a class="hero-badge liquid-glass reveal" href="#mcp">
-          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#plugs-connected"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#plugs-connected"/></svg>
           New: built-in MCP server
           <span class="badge-go">See how
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#arrow-up-right"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#arrow-up-right"/></svg>
           </span>
         </a>
         <h1 class="hero-title reveal">The native macOS home for everything you feed <span class="accent">your AI.</span></h1>
         <p class="hero-sub reveal">Collect references, skills, MCP servers, snippets, and prompts. Export any project as a context pack your agent can read.</p>
         <div class="hero-ctas reveal">
           <a class="btn btn-primary magnetic" href="https://github.com/Manath-iq/Manather/releases/latest">
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#apple-logo"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#apple-logo"/></svg>
             Download for macOS
           </a>
           <a class="btn btn-ghost" href="https://github.com/Manath-iq/Manather" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#github-logo"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#github-logo"/></svg>
             View on GitHub
           </a>
         </div>
@@ -103,23 +103,27 @@
       <div class="container container-wide">
         <div class="hero-stage reveal">
           <div class="float-chip chip-1" aria-hidden="true">
-            <svg class="icon"><use href="assets/icons.svg?v=4#images"/></svg>
+            <svg class="icon"><use href="assets/icons.svg?v=5#images"/></svg>
             moodboard-042.png
           </div>
           <div class="float-chip chip-2" aria-hidden="true">
-            <svg class="icon"><use href="assets/icons.svg?v=4#book-open-text"/></svg>
+            <svg class="icon"><use href="assets/icons.svg?v=5#book-open-text"/></svg>
             swift-macos.skill.md
           </div>
           <div class="float-chip chip-3" aria-hidden="true">
-            <svg class="icon"><use href="assets/icons.svg?v=4#plug"/></svg>
+            <svg class="icon"><use href="assets/icons.svg?v=5#plug"/></svg>
             mcp-config.json
           </div>
           <div class="float-chip chip-4" aria-hidden="true">
-            <svg class="icon"><use href="assets/icons.svg?v=4#code"/></svg>
+            <svg class="icon"><use href="assets/icons.svg?v=5#code"/></svg>
             MasonryLayout.swift
           </div>
           <figure class="window">
-            <img src="assets/cover.webp" alt="The Manather library: design references, skills, and MCP servers in one masonry grid" width="1920" height="1050" fetchpriority="high">
+            <button class="theme-flip" id="theme-flip" type="button" aria-pressed="false" aria-label="Show the light theme">
+              <svg class="icon icon-sun" aria-hidden="true"><use href="assets/icons.svg?v=5#sun"/></svg>
+              <svg class="icon icon-moon" aria-hidden="true"><use href="assets/icons.svg?v=5#moon"/></svg>
+            </button>
+            <img id="hero-shot" src="assets/cover.webp" alt="The Manather library: design references, skills, and MCP servers in one masonry grid" width="1920" height="1050" fetchpriority="high">
           </figure>
         </div>
       </div>
@@ -130,19 +134,19 @@
       <div class="container">
         <ul class="stats-row reveal">
           <li>
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#github-logo"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#github-logo"/></svg>
             <strong data-stat="stars">Open</strong> <span data-stat-label="stars">source on GitHub</span>
           </li>
           <li>
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#download-simple"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#download-simple"/></svg>
             <strong data-stat="downloads">Free</strong> <span data-stat-label="downloads">to download</span>
           </li>
           <li>
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#shield-check"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#shield-check"/></svg>
             <strong>MIT</strong> <span>licensed</span>
           </li>
           <li>
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#apple-logo"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#apple-logo"/></svg>
             <strong>macOS 14+</strong> <span>on Apple Silicon</span>
           </li>
         </ul>
@@ -156,41 +160,41 @@
       </div>
       <div class="marquee reveal" aria-hidden="true">
         <div class="marquee-track">
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#images"/></svg>IMG_2047.png</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#note"/></svg>prompt-final-v3.txt</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#code"/></svg>untitled-snippet.swift</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#link"/></svg>ref-do-not-lose.url</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#plug"/></svg>mcp-backup-OLD.json</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#images"/></svg>Screenshot 2026-05-11.png</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#book-open-text"/></svg>skill-copy-2.md</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#folders"/></svg>New Folder (7)</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#images"/></svg>IMG_2047.png</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#note"/></svg>prompt-final-v3.txt</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#code"/></svg>untitled-snippet.swift</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#link"/></svg>ref-do-not-lose.url</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#plug"/></svg>mcp-backup-OLD.json</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#images"/></svg>Screenshot 2026-05-11.png</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#book-open-text"/></svg>skill-copy-2.md</span>
-          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=4#folders"/></svg>New Folder (7)</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#images"/></svg>IMG_2047.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#note"/></svg>prompt-final-v3.txt</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#code"/></svg>untitled-snippet.swift</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#link"/></svg>ref-do-not-lose.url</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#plug"/></svg>mcp-backup-OLD.json</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#images"/></svg>Screenshot 2026-05-11.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#book-open-text"/></svg>skill-copy-2.md</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#folders"/></svg>New Folder (7)</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#images"/></svg>IMG_2047.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#note"/></svg>prompt-final-v3.txt</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#code"/></svg>untitled-snippet.swift</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#link"/></svg>ref-do-not-lose.url</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#plug"/></svg>mcp-backup-OLD.json</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#images"/></svg>Screenshot 2026-05-11.png</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#book-open-text"/></svg>skill-copy-2.md</span>
+          <span class="mess-chip"><svg class="icon"><use href="assets/icons.svg?v=5#folders"/></svg>New Folder (7)</span>
         </div>
       </div>
       <div class="container">
         <div class="problem-grid">
           <ul class="pain-list reveal">
             <li>
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#folders"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#folders"/></svg>
               Reference screenshots buried in Downloads and Desktop folders
             </li>
             <li>
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#note"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#note"/></svg>
               Prompts that live in old chat threads and Notes
             </li>
             <li>
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#code"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#code"/></svg>
               Snippets pasted between projects, never in the same place twice
             </li>
             <li>
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#plug"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#plug"/></svg>
               Skills and MCP configs spread across <code>~/.claude</code>
             </li>
           </ul>
@@ -264,12 +268,12 @@ assets/     skills/     snippets/
           </article>
           <article class="cell spot reveal">
             <div class="type-chips" aria-hidden="true">
-              <span><svg class="icon"><use href="assets/icons.svg?v=4#images"/></svg>Images</span>
-              <span><svg class="icon"><use href="assets/icons.svg?v=4#link"/></svg>Links</span>
-              <span><svg class="icon"><use href="assets/icons.svg?v=4#code"/></svg>Snippets</span>
-              <span><svg class="icon"><use href="assets/icons.svg?v=4#plug"/></svg>MCP</span>
-              <span><svg class="icon"><use href="assets/icons.svg?v=4#book-open-text"/></svg>Skills</span>
-              <span><svg class="icon"><use href="assets/icons.svg?v=4#note"/></svg>Prompts</span>
+              <span><svg class="icon"><use href="assets/icons.svg?v=5#images"/></svg>Images</span>
+              <span><svg class="icon"><use href="assets/icons.svg?v=5#link"/></svg>Links</span>
+              <span><svg class="icon"><use href="assets/icons.svg?v=5#code"/></svg>Snippets</span>
+              <span><svg class="icon"><use href="assets/icons.svg?v=5#plug"/></svg>MCP</span>
+              <span><svg class="icon"><use href="assets/icons.svg?v=5#book-open-text"/></svg>Skills</span>
+              <span><svg class="icon"><use href="assets/icons.svg?v=5#note"/></svg>Prompts</span>
             </div>
             <div class="cell-body">
               <h3>Six asset types</h3>
@@ -287,10 +291,10 @@ assets/     skills/     snippets/
           </article>
           <article class="cell spot reveal">
             <div class="provider-row" aria-hidden="true">
-              <svg class="icon"><use href="assets/icons.svg?v=4#brand-anthropic"/></svg>
-              <svg class="icon"><use href="assets/icons.svg?v=4#brand-googlegemini"/></svg>
-              <svg class="icon"><use href="assets/icons.svg?v=4#brand-ollama"/></svg>
-              <svg class="icon"><use href="assets/icons.svg?v=4#brand-mistral"/></svg>
+              <svg class="icon"><use href="assets/icons.svg?v=5#brand-anthropic"/></svg>
+              <svg class="icon"><use href="assets/icons.svg?v=5#brand-googlegemini"/></svg>
+              <svg class="icon"><use href="assets/icons.svg?v=5#brand-ollama"/></svg>
+              <svg class="icon"><use href="assets/icons.svg?v=5#brand-mistral"/></svg>
               <span class="provider-more">+4</span>
             </div>
             <div class="cell-body">
@@ -326,11 +330,11 @@ assets/     skills/     snippets/
           <div class="terminal reveal">
             <div class="terminal-bar">
               <span class="terminal-title">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#terminal-window"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#terminal-window"/></svg>
                 zsh
               </span>
               <button class="copy-btn" type="button" aria-live="polite" data-copy="claude mcp add --transport http manather http://127.0.0.1:4319/mcp --header &quot;Authorization: Bearer &lt;your-token&gt;&quot;">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#copy"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#copy"/></svg>
                 <span class="copy-label">Copy</span>
               </button>
             </div>
@@ -341,23 +345,24 @@ assets/     skills/     snippets/
 <span class="term-ok">✓</span> manather connected
 <span class="term-prompt">$</span> <span class="term-cursor" aria-hidden="true"></span></code></pre>
           </div>
+          <div class="mcp-side">
           <ul class="mcp-points">
             <li class="reveal">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#lock-key"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#lock-key"/></svg>
               <div>
                 <h3>Off by default</h3>
                 <p>The server runs only while Manather is open, and only after you turn it on in Settings.</p>
               </div>
             </li>
             <li class="reveal">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#shield-check"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#shield-check"/></svg>
               <div>
                 <h3>Local only</h3>
                 <p>It listens on 127.0.0.1 and requires a private token. Nothing is reachable from outside your Mac.</p>
               </div>
             </li>
             <li class="reveal">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#check"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#check"/></svg>
               <div>
                 <h3>You pick the permissions</h3>
                 <p>Per-capability toggles let an agent search but not create, or read but not export. Changes apply instantly.</p>
@@ -367,6 +372,7 @@ assets/     skills/     snippets/
           <figure class="window window-bare mcp-shot reveal">
             <img src="assets/mcp-settings.webp" alt="Manather settings: the MCP server page with endpoint, token, and per-capability permission toggles" loading="lazy" width="648" height="486">
           </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -386,23 +392,23 @@ assets/     skills/     snippets/
           <div class="pack-body">
             <ul class="tree-list" aria-label="Files in the context pack">
               <li><button class="tree-item is-active" aria-pressed="true" data-file="brief" type="button">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#note"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#note"/></svg>
                 <span class="tree-brief">CLAUDE.md</span>
               </button></li>
               <li><button class="tree-item" aria-pressed="false" data-file="manifest" type="button">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#code"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#code"/></svg>
                 manifest.json
               </button></li>
               <li><button class="tree-item" aria-pressed="false" data-file="assets" type="button">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#images"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#images"/></svg>
                 assets/
               </button></li>
               <li><button class="tree-item" aria-pressed="false" data-file="skills" type="button">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#book-open-text"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#book-open-text"/></svg>
                 skills/
               </button></li>
               <li><button class="tree-item" aria-pressed="false" data-file="snippets" type="button">
-                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#terminal-window"/></svg>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#terminal-window"/></svg>
                 snippets/
               </button></li>
             </ul>
@@ -435,7 +441,6 @@ Start from the references below.
           <button class="tab is-active" aria-pressed="true" data-shot="board">Boards</button>
           <button class="tab" aria-pressed="false" data-shot="collections">Collections</button>
           <button class="tab" aria-pressed="false" data-shot="detail">Detail view</button>
-          <button class="tab" aria-pressed="false" data-shot="light">Light theme</button>
         </div>
         <figure class="window reveal" id="gallery-window">
           <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -451,9 +456,9 @@ Start from the references below.
         <h2 class="reveal">Your data stays on your Mac.</h2>
         <p class="lead reveal">Files are copied into the app sandbox and never uploaded anywhere. AI features call only the provider you configure, with your own key, and only when you use them.</p>
         <div class="local-chips reveal">
-          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#check"/></svg>No account</span>
-          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#check"/></svg>No telemetry</span>
-          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#check"/></svg>No cloud</span>
+          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#check"/></svg>No account</span>
+          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#check"/></svg>No telemetry</span>
+          <span class="liquid-glass"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#check"/></svg>No cloud</span>
         </div>
       </div>
     </section>
@@ -465,7 +470,7 @@ Start from the references below.
         <h2 class="reveal">Get Manather.</h2>
         <div class="download-ctas reveal">
           <a class="btn btn-primary btn-lg magnetic" href="https://github.com/Manath-iq/Manather/releases/latest">
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#apple-logo"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#apple-logo"/></svg>
             Download for macOS
           </a>
           <p class="download-note">Free. For Apple Silicon Macs on macOS 14 or newer.</p>
@@ -473,7 +478,7 @@ Start from the references below.
         <div class="codeline reveal">
           <code>brew install --cask manath-iq/manather/manather</code>
           <button class="copy-btn" type="button" aria-live="polite" data-copy="brew install --cask manath-iq/manather/manather">
-            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#copy"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#copy"/></svg>
             <span class="copy-label">Copy</span>
           </button>
         </div>
@@ -483,7 +488,7 @@ Start from the references below.
           <div class="codeline">
             <code>git clone https://github.com/Manath-iq/Manather.git &amp;&amp; open Manather/manather.xcodeproj</code>
             <button class="copy-btn" type="button" aria-live="polite" data-copy="git clone https://github.com/Manath-iq/Manather.git && open Manather/manather.xcodeproj">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#copy"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#copy"/></svg>
               <span class="copy-label">Copy</span>
             </button>
           </div>
@@ -499,23 +504,23 @@ Start from the references below.
       <div class="container container-narrow">
         <h2 class="reveal">Common questions.</h2>
         <details class="reveal">
-          <summary>Is Manather free? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#caret-down"/></svg></summary>
+          <summary>Is Manather free? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#caret-down"/></svg></summary>
           <p>Yes. It is free, MIT-licensed open source. No account, no subscription, no paid tier.</p>
         </details>
         <details class="reveal">
-          <summary>Where does my data go? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#caret-down"/></svg></summary>
+          <summary>Where does my data go? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#caret-down"/></svg></summary>
           <p>Nowhere. Everything lives in the app sandbox on your Mac. AI features call the provider you configured with your own key, and only when you trigger them.</p>
         </details>
         <details class="reveal">
-          <summary>Does it run on Intel Macs? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#caret-down"/></svg></summary>
+          <summary>Does it run on Intel Macs? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#caret-down"/></svg></summary>
           <p>The prebuilt app targets Apple Silicon on macOS 14 or newer. Intel Macs are not supported.</p>
         </details>
         <details class="reveal">
-          <summary>Which agents does it work with? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#caret-down"/></svg></summary>
+          <summary>Which agents does it work with? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#caret-down"/></svg></summary>
           <p>Claude Code out of the box, anything that speaks MCP, and any tool that reads AGENTS.md or a plain markdown context pack.</p>
         </details>
         <details class="reveal">
-          <summary>Do I need an AI provider key? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=4#caret-down"/></svg></summary>
+          <summary>Do I need an AI provider key? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=5#caret-down"/></svg></summary>
           <p>No. The library, boards, collections, and export all work without one. A key only unlocks the optional AI extras: image variations, vision auto-tagging, and AI-written export briefs.</p>
         </details>
       </div>
@@ -539,6 +544,6 @@ Start from the references below.
     </div>
   </footer>
 
-  <script src="script.js?v=4" defer></script>
+  <script src="script.js?v=5" defer></script>
 </body>
 </html>

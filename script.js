@@ -192,6 +192,32 @@
     });
   }
 
+  /* Hero: flip the library screenshot between dark and light themes */
+  const themeFlip = document.getElementById("theme-flip");
+  const heroShot = document.getElementById("hero-shot");
+  if (themeFlip && heroShot) {
+    const THEMES = {
+      dark: { src: "assets/cover.webp", label: "Show the light theme" },
+      light: { src: "assets/light.webp", label: "Show the dark theme" },
+    };
+    let lightOn = false;
+    new Image().src = THEMES.light.src; /* warm the swap */
+    themeFlip.addEventListener("click", () => {
+      lightOn = !lightOn;
+      const next = lightOn ? THEMES.light : THEMES.dark;
+      heroShot.classList.add("is-fading");
+      const img = new Image();
+      img.src = next.src;
+      img.decode().catch(() => {}).finally(() => {
+        heroShot.src = next.src;
+        heroShot.classList.remove("is-fading");
+      });
+      themeFlip.setAttribute("aria-pressed", String(lightOn));
+      themeFlip.setAttribute("aria-label", next.label);
+      themeFlip.classList.toggle("is-light", lightOn);
+    });
+  }
+
   /* Hero window: subtle 3D tilt following the cursor */
   const heroStage = document.querySelector(".hero-stage");
   const heroWin = heroStage ? heroStage.querySelector(".window") : null;
@@ -406,12 +432,6 @@
       src: "assets/detail.webp",
       alt: "The Manather detail view: full-screen asset with inspector and color palette",
       caption: "Detail view: a full-screen viewer with an inspector and a live color palette.",
-      chrome: false,
-    },
-    light: {
-      src: "assets/light.webp",
-      alt: "The Manather library in the light theme",
-      caption: "The same library in light. Both themes ship.",
       chrome: false,
     },
   };
