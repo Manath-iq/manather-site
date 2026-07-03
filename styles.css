@@ -865,9 +865,21 @@ kbd {
 .copy-btn:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.28); }
 .copy-btn.is-copied { color: var(--accent-bright); border-color: var(--accent); }
 
-.mcp-side { display: flex; flex-direction: column; gap: 32px; }
-.mcp-shot { margin: 0; }
+/* Layered composition: the light settings panel peeks out from behind the
+   terminal, telling "turn it on in Settings, then connect" in one scene */
+.mcp-visual { position: relative; padding: 48px 56px 0 0; }
+.mcp-shot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58%;
+  margin: 0;
+  rotate: 2.2deg;
+  z-index: 0;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
 .mcp-shot img { width: 100%; }
+.mcp-visual .terminal { position: relative; z-index: 1; }
 
 .mcp-points { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 28px; }
 .mcp-points li { display: flex; gap: 16px; }
