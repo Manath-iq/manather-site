@@ -227,7 +227,7 @@ section { padding-block: 104px; position: relative; }
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-.nav-actions { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.nav-actions { display: flex; align-items: center; gap: 14px; }
 
 .nav-github {
   display: inline-flex;
@@ -1208,6 +1208,8 @@ kbd {
 @media (max-width: 1023px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
+  /* with the center links hidden, the actions take the right edge */
+  .nav-actions { margin-left: auto; }
   .cell-boards { grid-column: span 4; }
   .bento > .cell:not(.cell-boards):not(.cell-collections) { grid-column: span 2; }
 
