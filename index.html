@@ -7,6 +7,7 @@
   <meta name="description" content="Collect references, skills, MCP servers, snippets, and prompts. Organize them visually and export any project as a context pack your AI agent can read. Free, open source, macOS 14+.">
 
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Manather">
   <meta property="og:title" content="Manather: the native macOS home for everything you feed your AI">
   <meta property="og:description" content="Collect references, skills, MCP servers, snippets, and prompts. Export any project as an agent-ready context pack. Free and open source.">
   <meta property="og:url" content="https://manath-iq.github.io/manather-site/">
@@ -22,17 +23,38 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Manather",
+    "operatingSystem": "macOS 14.0 or later",
+    "applicationCategory": "DeveloperApplication",
+    "description": "A native macOS library for everything you feed your AI: references, skills, MCP servers, snippets, and prompts. Export any project as an agent-ready context pack.",
+    "url": "https://manath-iq.github.io/manather-site/",
+    "downloadUrl": "https://github.com/Manath-iq/Manather/releases/latest",
+    "image": "https://manath-iq.github.io/manather-site/assets/og-cover.jpg",
+    "license": "https://github.com/Manath-iq/Manather/blob/main/LICENSE",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
   <link rel="preload" href="assets/fonts/clash-display.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/cover.webp" as="image" fetchpriority="high">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
   <noscript>
     <style>
       .reveal { opacity: 1 !important; transform: none !important; }
       .nav { background: rgba(13, 16, 19, 0.85); border-color: rgba(255, 255, 255, 0.07); }
-      .copy-btn, .nav-toggle, .aurora-canvas { display: none !important; }
+      .copy-btn, .nav-toggle, .aurora-canvas, .theme-flip { display: none !important; }
+      /* No JS means no hamburger, so keep the section links reachable on phones */
+      @media (max-width: 1023px) {
+        .nav { border-radius: 22px; }
+        .nav-menu[hidden] { display: flex; }
+      }
     </style>
   </noscript>
 </head>
