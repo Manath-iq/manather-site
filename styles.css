@@ -72,6 +72,10 @@ a:hover { text-decoration: underline; }
 
 code { font-family: var(--font-mono); font-size: 0.9em; }
 
+/* Geist Mono's contextual ligatures swallow the space before "--", so
+   "install --cask" renders as "install--cask". Commands must read exactly. */
+pre, code, kbd { font-variant-ligatures: none; }
+
 .icon { width: 1.05em; height: 1.05em; flex: none; fill: currentColor; }
 
 .container { max-width: 1080px; margin-inline: auto; padding-inline: 24px; }
@@ -804,6 +808,9 @@ kbd {
   gap: 48px;
   align-items: start;
 }
+/* Grid items default to min-width auto, so a wide <pre> inside would force
+   the track past the viewport on small screens. Let them shrink and scroll. */
+.mcp-grid > *, .pack-body > *, .how-grid > *, .problem-grid > * { min-width: 0; }
 
 .terminal {
   position: relative;
@@ -1241,6 +1248,8 @@ kbd {
   .marquee { margin: 32px 0 44px; }
   .hero { padding-top: 128px; }
   .hero-stage { margin-top: 52px; }
+
+  .mcp-visual { padding: 44px 16px 0 0; }
 
 
 
